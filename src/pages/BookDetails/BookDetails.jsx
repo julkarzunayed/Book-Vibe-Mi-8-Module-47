@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdOutlineKeyboardBackspace } from 'react-icons/md';
 import { Link, useLoaderData, useParams } from 'react-router';
+import { setItemsToLocalStorage } from '../../utility/addToLocalStorage';
 
 const BookDetails = () => {
     const booksData = useLoaderData()
@@ -9,6 +10,10 @@ const BookDetails = () => {
     const bookDetails = booksData.find(book => book.bookId === bookId)
 
     const { image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating } = bookDetails;
+
+    const handleMarkAsRead = id => {
+        setItemsToLocalStorage(id)
+    }
 
     return (
         <div className="my-16">
@@ -54,8 +59,10 @@ const BookDetails = () => {
                         </table>
                     </div>
                     <div className="">
-                        <button className='font-bold mr-3 btn bg-gray-200 text-black'>Read</button>
-                        <button className='font-bold btn btn-info btn-action'>WishList</button>
+                        <button
+                            onClick={() => handleMarkAsRead(Id)}
+                            className='font-bold mr-3 btn bg-gray-200 text-black'>Add to Read</button>
+                        <button className='font-bold btn btn-info btn-action'>Add to  WishList</button>
                     </div>
                 </div>
             </div>
