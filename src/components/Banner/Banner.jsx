@@ -4,7 +4,7 @@ import booksImage from '../../assets/books.jpg'
 
 const Banner = () => {
     return (
-        <div className='grid  md:grid-cols-2 gap-5 p-16 bg-base-200 rounded-3xl'>
+        <div className='grid  md:grid-cols-2 gap-5 mt-10 p-16 bg-base-200 rounded-3xl'>
             <div className="p-14">
                 <div className="flex flex-col">
                     <h1 className='text-4xl font-bold'>Books to freshen up <br /> your bookshelf</h1>
